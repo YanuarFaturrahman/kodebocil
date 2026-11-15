@@ -8,6 +8,5 @@ RUN cargo build --release
 FROM debian:bookworm-slim
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
 COPY --from=build /app/target/release/kodebocil /usr/local/bin/kodebocil
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=80
 CMD ["kodebocil"]
